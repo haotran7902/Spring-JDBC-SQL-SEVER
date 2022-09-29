@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="icon" href="pic/icon.png">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <title>Web development</title>
+    <script src="index.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="#" class="font">Hao Coder</a>
+        </div>
+        <nav class="navbar">
+            <a href="index.html">home</a>
+            <a href="">service</a>
+            <a href="">news</a>
+            <a href="">contact</a>
+        </nav>
+    </header>
+
+    <div class="background_header">
+        <div class="background_header-content">
+            <h3>welcome to our website!</h3>
+        </div>
+        <div class="background_header-img">
+            <img id="img" onclick="changeImage()" src="pic/pic1.jpg">
+        </div>
+    </div>
+
+    <button onclick="move()"><p>Your Progress<p></button>
+    <span>Click to see which knowledge you learned about creating a website!</span>
+    <div class="myProgress">
+        <div id="myBar"></div>
+    </div>
+    <div>
+        <p id="message"></p>
+    </div>
+    <br><br>
+</body>
+</html>
