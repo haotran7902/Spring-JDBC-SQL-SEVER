@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>csdlpt</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<style>
+		.my-bg {
+			background-color: #f3d96f;
+		}
+	</style>
+	
+	</head>
+
+<body style="font-family: Arial, Helvetica, sans-serif;" class="my-bg">
+	<a th:href="@{/khachhangs2}" class="mt-3 btn btn-primary col-lg-12 mb-5">Search Guest By Branch</a>
+    <div class="container mt-5">
+        <div class="row">
+            <h1>Danh sách khách hàng tại máy trạm QLKH1 (this PC)</h1>
+        </div>
+        <p th:text="'Có tất cả ' + ${total} + ' khách hàng'"></p>
+        <a th:href="@{/khachhang/new}" class="mt-3 btn btn-success col-lg-12 mb-5">Create New Customer</a>
+        <table class="table table-striped table-bordered mt-3 bg-light rounded p3">
+            <thead class="table-dark">
+                <tr>
+                    <th>MaKH</th>
+                    <th>TenKH</th>
+                    <th>Dia Chi</th>
+                    <th>SDT</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="khachhang: ${khachhangs}">
+                    <td th:text="${khachhang.MaKH}"></td>
+                    <td th:text="${khachhang.TenKH}"></td>
+                    <td th:text="${khachhang.DiaChi}"></td>
+                    <td th:text="${khachhang.SDT}"></td>
+                   <td>
+					    <div class="btn-group" role="group">
+					        <a th:href="@{/khachhang/{id}(id = ${khachhang.MaKH})}" class="btn btn-success ml-5 mr-3 rounded p3">Edit</a>
+					        <form th:object="${khachhang}" th:action="@{/khachhang/{id}(id = ${khachhang.MaKH})}" th:method="Delete" 
+					        onsubmit="return confirm('Are you sure you want to delete this guest?')">
+					            <input type="submit" value="Delete" class="btn btn-danger">
+					        </form>
+					    </div>
+					</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Select Page</p>
+        <form th:action="@{/khachhangs}" th:method="get" class="form-inline my-2 my-lg-0 mb-5">
+			<div class="input-group input-group-sm">
+				<input th:value="${currentPage}" th:name="page" type="number" class="form-control"
+					aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+					placeholder="find page here..." min="0" th:max="${endPage}">
+					
+				<div class="input-group-append">
+					<button type="submit" class="btn btn-primary">
+					Apply
+					</button>
+				</div>
+			</div>
+		</form>
+		<br>
+		<div class="mb-5"></div>
+    </div>
+</body>
+
+</html>

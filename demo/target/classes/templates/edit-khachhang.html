@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>csdlpt</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Nạp các file CSS của Bootstrap -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/css/bootstrap.min.css">
+    <style>
+		.my-bg {
+			background-color: #f3d96f;
+		}
+	</style>
+</head>
+
+<body class="my-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 offset-md-4 mt-4 p-5 rounded p5 bg-white">
+                <h2 class="text-center">Sua Khach Hang</h2>
+                <form th:object="${khachhang}" th:action="@{/khachhang/save/{id}(id=${khachhang.MaKH})}" th:method="PUT">
+                    <div class="mb-3">
+                        <label class="form-label">MaKH</label>&#160;
+                        <input class="form-control" type="text" name="MaKH" th:value="${khachhang.MaKH}" required readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">TenKH</label>&#160;
+                        <input class="form-control" type="text" name="TenKH" th:value="${khachhang.TenKH}" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">DiaChi</label>&#160;
+                        <input class="form-control" type="text" name="DiaChi" th:value="${khachhang.DiaChi}" required>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label class="form-label">SDT</label>&#160;
+                        <input class="form-control" type="text" name="SDT" th:value="${khachhang.SDT}" required>
+                    </div>
+                    <input type="submit" value="Update" class="btn btn-primary">
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Nạp các file JavaScript của Bootstrap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
